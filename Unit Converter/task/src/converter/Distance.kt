@@ -35,16 +35,15 @@ enum class Distance {
         }
 
         fun convertToMeters(number: Double, unit: Distance): Double {
-            var numberMeters = 0.0
-            when (unit) {
-                METER -> numberMeters = number * 1.0
-                KILOMETER -> numberMeters = number * 1000.0
-                CENTIMETER -> numberMeters = number * 0.01
-                MILIMETER -> numberMeters = number * 0.001
-                MILE -> numberMeters = number * 1609.35
-                YARD -> numberMeters = number * 0.9144
-                FOOT -> numberMeters = number * 0.3048
-                INCH -> numberMeters = number * 0.0254
+            val numberMeters = when (unit) {
+                METER -> number * 1.0
+                KILOMETER -> number * 1000.0
+                CENTIMETER -> number * 0.01
+                MILIMETER -> number * 0.001
+                MILE -> number * 1609.35
+                YARD -> number * 0.9144
+                FOOT -> number * 0.3048
+                INCH -> number * 0.0254
             }
             return numberMeters
         }

@@ -24,7 +24,7 @@ enum class Temperature {
             when (inputType) {
                 CELSIUS -> {
                     result = when (outputType) {
-                        FAHRENHEIT -> number * (9 / 5) + 32
+                        FAHRENHEIT -> number * (9.0 / 5.0) + 32.0
                         KELVIN -> number + 273.15
                         CELSIUS -> number
                     }
@@ -32,15 +32,15 @@ enum class Temperature {
 
                 FAHRENHEIT -> {
                     result = when (outputType) {
-                        CELSIUS -> (number - 32) * (5 / 9)
-                        KELVIN -> (number + 459.67) * (5 / 9)
+                        CELSIUS -> (number - 32.0) * (5.0 / 9.0)
+                        KELVIN -> (number + 459.67) * (5.0 / 9.0)
                         FAHRENHEIT -> number
                     }
                 }
 
                 KELVIN -> {
                     result = when (outputType) {
-                        FAHRENHEIT -> number * (9 / 5) - 459.67
+                        FAHRENHEIT -> number * (9.0 / 5.0) - 459.67
                         CELSIUS -> number - 273.15
                         KELVIN -> number
                     }
@@ -49,5 +49,20 @@ enum class Temperature {
 
             return result
         }
+
+
     }
 }
+
+/*
+val intermediate = Temperature.convertToCelsius(number, inputType)
+
+fun convertToCelsius(number: Double, unit: Temperature): Double{
+            val tempCelsius = when(unit){
+                CELSIUS -> number * 1
+                FAHRENHEIT -> (number - 32) * (5 / 9)
+                KELVIN -> number - 273.15
+            }
+            return tempCelsius
+        }
+ */
